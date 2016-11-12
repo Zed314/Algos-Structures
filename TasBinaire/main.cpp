@@ -32,11 +32,30 @@ void testAjust()
 	b.AfficherTas();
 	
 }
+void testSuppr()
+{
+	int tab[4]={2,5,8,2};
+	TasBinaire b(4,tab);
+	b.AfficherTas();
+	b.SupprimerTete();
+	b.AfficherTas();
+	b.SupprimerTete();
+	b.AfficherTas();
+	b.SupprimerTete();
+	b.AfficherTas();
+	b.SupprimerTete();
+	b.AfficherTas();
+	b.SupprimerTete();
+	b.AfficherTas();
+	
+}
+
+
 int main()
 {
 
 //testsAjouts();
-testAjust();
+testSuppr();
 	//cout<<"jeej"<<endl;
 	return 0;
 }

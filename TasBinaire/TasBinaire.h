@@ -15,6 +15,7 @@ class TasBinaire
 	TasBinaire(unsigned int taille=10,int * tabInitialisation=nullptr);
 	~TasBinaire();
 	private:
+	void inverser(int &a,int &b);
 	int * tas;
 	unsigned int tailleTas;
 	unsigned int tailleMax;
