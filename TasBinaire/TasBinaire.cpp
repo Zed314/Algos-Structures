@@ -1,6 +1,32 @@
 #include "TasBinaire.h"
 #include <iostream>
 using namespace std;
+
+void TasBinaire::Ajuster(int delta)
+{
+	if(delta!=0)
+	{
+	
+		if(delta<0)
+		{
+			if(-delta>(this->tailleMax-this->tailleTas))
+			{
+				int tempTailleMax=this->tailleMax;
+				delta=this->tailleTas-tempTailleMax;
+			}
+		}
+		int * newTas=new int[tailleMax+delta];
+		for(unsigned int i=0;i<this->tailleTas;i++)
+		{
+			newTas[i]=tas[i];
+		}
+		delete[] tas;
+		tailleMax+=delta;
+		tas=newTas;
+	}
+	
+	
+}
 bool TasBinaire::AjouterElement(int valAAjouter)
 {
 	if(tailleTas==tailleMax)

@@ -19,10 +19,24 @@ void testsAjouts()
 	b.AfficherTas();
 		
 }
+void testAjust()
+{
+	int tab[4]={2,5,8,2};
+	TasBinaire b(4,tab);
+	b.AfficherTas();
+	b.Ajuster(4);
+	b.AfficherTas();
+	b.Ajuster(-3);
+	b.AfficherTas();
+	b.Ajuster(-20);
+	b.AfficherTas();
+	
+}
 int main()
 {
 
-testsAjouts();
+//testsAjouts();
+testAjust();
 	//cout<<"jeej"<<endl;
 	return 0;
 }

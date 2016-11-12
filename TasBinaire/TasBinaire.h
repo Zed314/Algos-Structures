@@ -8,6 +8,8 @@
 class TasBinaire
 {
 	public:
+	void Ajuster(int delta);
+	void SupprimerTete();
 	bool AjouterElement(int valAAjouter);
 	void AfficherTas();
 	TasBinaire(unsigned int taille=10,int * tabInitialisation=nullptr);
