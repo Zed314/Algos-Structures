@@ -7,7 +7,7 @@ typedef struct arbre
 	int val;
 	arbre * droit;
 	arbre * gauche;
-}Arbre;
+} Arbre;
 
 int main()
 {
