@@ -1,5 +1,5 @@
 OBJ=main.o TasBinaire.o
-COMPFLAGS=-std=c++11
+COMPFLAGS=-std=c++11 -Wall
 programme : $(OBJ)
 	g++ $(COMPFLAGS) -o programme $(OBJ)
 

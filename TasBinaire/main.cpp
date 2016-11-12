@@ -49,13 +49,36 @@ void testSuppr()
 	b.AfficherTas();
 	
 }
+void sousTest(TasBinaire w)
+{
+	w.AfficherTas();
+}
+void testCopie()
+{
+	int tab[4]={2,5,8,2};
+	TasBinaire b(4,tab);
+	b.AfficherTas();
+	/*{
+		TasBinaire c (b);
+		c.AfficherTas();
+	}
+	b.AfficherTas();*/
+	cout<<"Test"<<endl;
+	sousTest(b);
+	b.AfficherTas();
+	
+	
+	
+
+}
 
 
 int main()
 {
 
 //testsAjouts();
-testSuppr();
+//testSuppr();
+testCopie();
 	//cout<<"jeej"<<endl;
 	return 0;
 }

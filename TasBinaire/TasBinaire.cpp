@@ -15,7 +15,7 @@ void TasBinaire::SupprimerTete()
 		tas[0]=tas[tailleTas-1];
 		tailleTas--;
 		bool finish=false;
-		int i=0;
+		unsigned int i=0;
 		while(!finish)
 		{
 			if(2*i+2<tailleTas)//Si il a deux fils
@@ -74,10 +74,10 @@ void TasBinaire::Ajuster(int delta)
 	
 		if(delta<0)
 		{
-			if(-delta>(this->tailleMax-this->tailleTas))
+			int tempTailleMaxMoinsTaille=this->tailleMax-this->tailleTas;
+			if(-delta>(tempTailleMaxMoinsTaille))
 			{
-				int tempTailleMax=this->tailleMax;
-				delta=this->tailleTas-tempTailleMax;
+				delta=-tempTailleMaxMoinsTaille;
 			}
 		}
 		int * newTas=new int[tailleMax+delta];
@@ -135,6 +135,21 @@ void TasBinaire::AfficherTas()
 	cout<<endl;
 	
 }
+TasBinaire::TasBinaire(const TasBinaire & tasACopier)//:tailleMax(tasACopier.tailleMax),tailleTas(tasACopier.tailleTas)
+{
+	#ifdef MAP
+	cout<<"Appel au constructeur de copie de TasBinaire.."<<endl;
+	#endif
+	this->tailleMax=tasACopier.tailleMax;
+	this->tailleTas=tasACopier.tailleTas;
+//:tailleMax(tasACopier.tailleMax),tailleTas(tasACopier.tailleTas)
+	this->tas= new int[tasACopier.tailleMax];
+	for(unsigned int i=0;i<tasACopier.tailleTas;i++)
+	{
+		this->tas[i]=tasACopier.tas[i];
+	}
+	
+}
 TasBinaire::TasBinaire(unsigned int taille,int *tabInit):tailleMax(taille)
 {
 	#ifdef MAP
@@ -158,7 +173,7 @@ TasBinaire::TasBinaire(unsigned int taille,int *tabInit):tailleMax(taille)
 TasBinaire::~TasBinaire()
 {
 	#ifdef MAP
-	cout<<"Appel au déstructeur de TasBinaire.."<<endl;
+	cout<<"Appel au destructeur de TasBinaire.."<<endl;
 	#endif
 	delete[] tas;
 	

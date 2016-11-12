@@ -13,6 +13,7 @@ class TasBinaire
 	bool AjouterElement(int valAAjouter);
 	void AfficherTas();
 	TasBinaire(unsigned int taille=10,int * tabInitialisation=nullptr);
+	TasBinaire(const TasBinaire &tasACopier);
 	~TasBinaire();
 	private:
 	void inverser(int &a,int &b);
