@@ -1,7 +1,15 @@
-OBJ= main.o
+OBJ= main.o Abr.o File.o	
+COMPFLAGS=-std=c++11 -Wall
 programme : $(OBJ)
-	gcc -o programme $(OBJ)
-main.o : main.c 
-	gcc -c main.c
+	g++ $(COMPFLAGS) -o programme $(OBJ)
+
+main.o : main.cpp Abr.h File.h
+	g++ $(COMPFLAGS) -c main.cpp
+
+Abr.o : Abr.h Abr.cpp File.h
+	g++ $(COMPFLAGS) -c Abr.cpp
+
+File.o : File.h File.cpp
+	g++ $(COMPFLAGS) -c File.cpp
 clean : 
 	rm $(OBJ)
