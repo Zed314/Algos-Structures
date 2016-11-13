@@ -3,9 +3,26 @@
 
 
 using namespace std;
-int main()
+void testCopie()
 {
 	Abr a;
+	a.AjouterVal(10);
+	a.AjouterVal(20);
+	a.AjouterVal(30);
+	a.AjouterVal(40);
+	a.AjouterVal(5);
+	a.AffichageLargeur();
+	{
+		Abr b=a;
+		b.AffichageLargeur();
+	}
+	a.AffichageLargeur();
+	
+}
+int main()
+{
+	testCopie();
+/*	Abr a;
 	a.AffichageLargeur();
 	a.AjouterVal(10);
 	a.AffichageLargeur();
@@ -32,7 +49,7 @@ a.AffichageLargeur();
 	a.AjouterVal(20);
 	a.AffichageLargeur();
 	a.AjouterVal(30);
-		a.AffichageLargeur();
+		a.AffichageLargeur();*/
 	/*File b;
 	b.Defile();
 	b.Enfile(10);

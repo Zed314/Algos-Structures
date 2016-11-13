@@ -187,5 +187,33 @@ Abr::~Abr()
 }
 Abr::Abr(const Abr &ArbreACopier)
 {
-	//Todo Either
+	
+	
+	Arbre * depart=ArbreACopier.racine;
+	this->racine=nullptr;
+	if(depart!=nullptr)
+	{
+		File file;
+		Arbre * elementEnCours=depart;
+		file.Enfile(elementEnCours);
+		while(!file.EstVide())
+		{
+			
+			elementEnCours=file.Defile();
+			this->AjouterVal(elementEnCours->val);
+			if(elementEnCours->gauche!=nullptr)
+			{
+			
+				file.Enfile(elementEnCours->gauche);
+			}	
+			if(elementEnCours->droite!=nullptr)
+			{
+			
+				file.Enfile(elementEnCours->droite);
+			}	
+		}
+		
+	}
+	
+	
 }
