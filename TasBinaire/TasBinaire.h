@@ -4,22 +4,23 @@
 #define MAP
 
 
-
+template <class T>
 class TasBinaire
 {
 	public:
-	void Ajuster(int delta);
+	void Ajuster(T delta);
 	void SupprimerTete();
-	bool AjouterElement(int valAAjouter);
+	bool AjouterElement(T valAAjouter);
 	void AfficherTas();
-	TasBinaire(unsigned int taille=10,int * tabInitialisation=nullptr);
-	TasBinaire(const TasBinaire &tasACopier);
+	TasBinaire(unsigned int taille=10,T * tabInitialisation=nullptr);
+	TasBinaire(const TasBinaire<T> &tasACopier);
 	~TasBinaire();
 	private:
-	void inverser(int &a,int &b);
-	int * tas;
+	void inverse(T &a,T &b);
+	T * tas;
 	unsigned int tailleTas;
 	unsigned int tailleMax;
 
 };
+#include "TasBinaire.tpp"
 #endif

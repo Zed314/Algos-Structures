@@ -6,8 +6,8 @@ programme : $(OBJ)
 main.o : main.cpp TasBinaire.h
 	g++ $(COMPFLAGS) -c main.cpp
 
-TasBinaire.o: TasBinaire.cpp TasBinaire.h
-	g++ $(COMPFLAGS) -c TasBinaire.cpp
+TasBinaire.o: TasBinaire.tpp TasBinaire.h
+	g++ $(COMPFLAGS) -c TasBinaire.h
 clean:
 	rm $(OBJ)
 

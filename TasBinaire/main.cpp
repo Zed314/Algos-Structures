@@ -4,7 +4,7 @@
 using namespace std;
 void testsAjouts()
 {
-	TasBinaire a(3);
+	TasBinaire <int>a(3);
 	a.AfficherTas();
 	a.AjouterElement(2);
 	a.AfficherTas();
@@ -15,14 +15,14 @@ void testsAjouts()
 	a.AjouterElement(4);
 	a.AfficherTas();
 	int tab[4]={2,5,8,2};
-	TasBinaire b(4,tab);
+	TasBinaire <int> b(4,tab);
 	b.AfficherTas();
 		
 }
 void testAjust()
 {
 	int tab[4]={2,5,8,2};
-	TasBinaire b(4,tab);
+	TasBinaire <int>b(4,tab);
 	b.AfficherTas();
 	b.Ajuster(4);
 	b.AfficherTas();
@@ -35,7 +35,7 @@ void testAjust()
 void testSuppr()
 {
 	int tab[4]={2,5,8,2};
-	TasBinaire b(4,tab);
+	TasBinaire<int> b(4,tab);
 	b.AfficherTas();
 	b.SupprimerTete();
 	b.AfficherTas();
@@ -49,14 +49,14 @@ void testSuppr()
 	b.AfficherTas();
 	
 }
-void sousTest(TasBinaire w)
+void sousTest(TasBinaire<int> w)
 {
 	w.AfficherTas();
 }
 void testCopie()
 {
 	int tab[4]={2,5,8,2};
-	TasBinaire b(4,tab);
+	TasBinaire<int> b(4,tab);
 	b.AfficherTas();
 	/*{
 		TasBinaire c (b);

@@ -1,13 +1,18 @@
-#include "TasBinaire.h"
+
 #include <iostream>
+
 using namespace std;
-void inverse(int &a,int &b)
+
+template <typename T>
+void TasBinaire<T>::inverse(T &a,T &b)
+
 {
-	int temp=a;
+	T temp=a;
 	a=b;
 	b=temp;
 }
-void TasBinaire::SupprimerTete()
+template <typename T>
+void TasBinaire<T>::SupprimerTete()
 {
 	if(tailleTas!=0)
 	{
@@ -67,7 +72,8 @@ void TasBinaire::SupprimerTete()
 	}
 	
 }
-void TasBinaire::Ajuster(int delta)
+template <typename T>
+void TasBinaire<T>::Ajuster(T delta)
 {
 	if(delta!=0)
 	{
@@ -80,7 +86,7 @@ void TasBinaire::Ajuster(int delta)
 				delta=-tempTailleMaxMoinsTaille;
 			}
 		}
-		int * newTas=new int[tailleMax+delta];
+		T * newTas=new T[tailleMax+delta];
 		for(unsigned int i=0;i<this->tailleTas;i++)
 		{
 			newTas[i]=tas[i];
@@ -92,15 +98,16 @@ void TasBinaire::Ajuster(int delta)
 	
 	
 }
-bool TasBinaire::AjouterElement(int valAAjouter)
+template <typename T>
+bool TasBinaire<T>::AjouterElement(T valAAjouter)
 {
 	if(tailleTas==tailleMax)
 	{
 		return false;
 	}
 	tas[tailleTas]=valAAjouter;
-	int i=tailleTas;//Pas unsigned int pour éviter les soucis avec le calcul du père
-	int temp;
+	T i=tailleTas;//Pas unsigned int pour éviter les soucis avec le calcul du père
+	T temp;
 	while(i>0&&tas[i]>tas[(i-1)/2])
 	{	
 		temp=tas[i];
@@ -112,7 +119,8 @@ bool TasBinaire::AjouterElement(int valAAjouter)
 	tailleTas++;
 	return true;
 }
-void TasBinaire::AfficherTas()
+template <typename T>
+void TasBinaire<T>::AfficherTas()
 {
 	cout<<"La taille du tas est de "<<tailleTas<<endl;
 	cout<<"La taille allouée est de "<<tailleMax<<endl;
@@ -135,7 +143,8 @@ void TasBinaire::AfficherTas()
 	cout<<endl;
 	
 }
-TasBinaire::TasBinaire(const TasBinaire & tasACopier)//:tailleMax(tasACopier.tailleMax),tailleTas(tasACopier.tailleTas)
+template <typename T>
+TasBinaire<T>::TasBinaire(const TasBinaire<T> & tasACopier)//:tailleMax(tasACopier.tailleMax),tailleTas(tasACopier.tailleTas)
 {
 	#ifdef MAP
 	cout<<"Appel au constructeur de copie de TasBinaire.."<<endl;
@@ -143,20 +152,21 @@ TasBinaire::TasBinaire(const TasBinaire & tasACopier)//:tailleMax(tasACopier.tai
 	this->tailleMax=tasACopier.tailleMax;
 	this->tailleTas=tasACopier.tailleTas;
 //:tailleMax(tasACopier.tailleMax),tailleTas(tasACopier.tailleTas)
-	this->tas= new int[tasACopier.tailleMax];
+	this->tas= new T[tasACopier.tailleMax];
 	for(unsigned int i=0;i<tasACopier.tailleTas;i++)
 	{
 		this->tas[i]=tasACopier.tas[i];
 	}
 	
 }
-TasBinaire::TasBinaire(unsigned int taille,int *tabInit):tailleMax(taille)
+template <typename T>
+TasBinaire<T>::TasBinaire(unsigned int taille,T *tabInit):tailleMax(taille)
 {
 	#ifdef MAP
 	cout<<"Appel au constructeur de TasBinaire.."<<endl;
 	#endif
 	tailleTas=0;
-	tas = new int[tailleMax];
+	tas = new T[tailleMax];
 	if (tabInit!=nullptr)
 	{
 
@@ -170,7 +180,8 @@ TasBinaire::TasBinaire(unsigned int taille,int *tabInit):tailleMax(taille)
 	}
 	
 }
-TasBinaire::~TasBinaire()
+template <typename T>
+TasBinaire<T>::~TasBinaire()
 {
 	#ifdef MAP
 	cout<<"Appel au destructeur de TasBinaire.."<<endl;
